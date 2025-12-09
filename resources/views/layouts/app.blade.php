@@ -24,6 +24,8 @@
             --bs-table-border-color: #e5e7eb;
             --bs-form-control-bg: white;
             --bs-form-control-color: #1f2937;
+            --bs-card-bg: white;
+            --bs-card-border-color: #e5e7eb;
         }
 
         /* Dark Mode */
@@ -139,6 +141,15 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
+        .card-body {
+            background-color: var(--bs-card-bg, white);
+            color: var(--bs-body-color);
+        }
+
+        .card-title {
+            color: var(--bs-body-color);
+        }
+
         .table {
             font-size: 0.9rem;
             color: var(--bs-body-color);
@@ -171,17 +182,25 @@
 
         .form-control,
         .form-select {
-            background-color: var(--bs-form-control-bg);
-            color: var(--bs-form-control-color);
-            border-color: var(--bs-border-color);
+            background-color: var(--bs-form-control-bg) !important;
+            color: var(--bs-form-control-color) !important;
+            border-color: var(--bs-border-color) !important;
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+        }
+
+        html[data-bs-theme="dark"] .form-control::placeholder {
+            color: #6b7280;
         }
 
         .form-control:focus,
         .form-select:focus {
-            background-color: var(--bs-form-control-bg);
-            color: var(--bs-form-control-color);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
+            background-color: var(--bs-form-control-bg) !important;
+            color: var(--bs-form-control-color) !important;
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25) !important;
         }
 
         .form-label {
@@ -312,7 +331,9 @@
                         </form>
                     </li>
                 @else
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    @if(Route::currentRouteName() !== 'login')
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    @endif
                 @endauth
             </ul>
         </div>

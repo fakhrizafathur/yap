@@ -2,6 +2,43 @@
 
 @section('title', 'Login')
 
+@section('head')
+    <style>
+        /* Dark mode adjustments for login form */
+        html[data-bs-theme="dark"] .bi-person-circle {
+            color: #a78bfa !important;
+        }
+
+        html[data-bs-theme="dark"] .form-check-label {
+            color: var(--bs-body-color);
+        }
+
+        html[data-bs-theme="dark"] .form-check-input {
+            background-color: #334155;
+            border-color: #475569;
+        }
+
+        html[data-bs-theme="dark"] .form-check-input:checked {
+            background-color: #667eea;
+            border-color: #667eea;
+        }
+
+        /* Ensure light mode form inputs are white */
+        html:not([data-bs-theme="dark"]) .form-control,
+        html:not([data-bs-theme="dark"]) .form-select {
+            background-color: white !important;
+            color: #1f2937 !important;
+            border-color: #d1d5db !important;
+        }
+
+        html:not([data-bs-theme="dark"]) .form-control:focus,
+        html:not([data-bs-theme="dark"]) .form-select:focus {
+            background-color: white !important;
+            color: #1f2937 !important;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -48,5 +85,5 @@
             </div>
         </div>
     </div>
-    </div>
+</div>
 @endsection
