@@ -46,8 +46,6 @@
                     </form>
                 </div>
             </div>
-
-            <p class="text-center mt-3"><a href="/">Back to home</a></p>
         </div>
     </div>
     </div>
